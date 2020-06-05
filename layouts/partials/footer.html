@@ -1,0 +1,20 @@
+<footer class="mastfoot mt-auto bg-dark">
+    <div class="inner container text-white-50 py-3">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                {{ partial "social_icon_menu.html" . }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p class="text-center">
+                    {{ if .Site.Params.Author }}
+                        <i class="fa fa-copyright" aria-hidden="true"></i><a class="text-decoration-none text-reset px-1" href="{{ .Site.BaseURL }}">{{ .Site.Params.Author }}</a></i> - 
+                    {{ end }}
+                    All Rights Reserved <a class="text-decoration-none text-reset" href="https://gohugo.io/">GoHugo</a> & 
+                    <a class="text-decoration-none text-reset" href="https://github.com/williamhastings/noless-nomore">noless-nomore</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>

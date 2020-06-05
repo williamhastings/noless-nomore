@@ -1,0 +1,21 @@
+{{ define "main" }}
+<main role="main" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 text-center bg-info text-white-50 p-5">
+            <h1 class="display-4">{{ .Title }}</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row my-5 text-wrap">
+            {{ partial "generic_article_info.html" . }}
+        </div>
+        <hr />
+        <div class="row my-5 default-content-area markdown-content">
+            <div class="col-sm-12">
+                {{ .Content }}
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+{{ end }}

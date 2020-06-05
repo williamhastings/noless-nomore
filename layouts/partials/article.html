@@ -1,0 +1,26 @@
+
+<div class="shadow-lg p-3 mb-3 bg-white rounded col-sm-12">
+    <!-- Article Title -->
+    <a href="{{ .RelPermalink }}" class="text-reset text-decoration-none">
+        <h4 class="text-justify">{{ .Title }}</h4>
+    </a>
+
+    <!-- Article Info -->
+    {{ partial "generic_article_info.html" . }}
+
+    <hr />
+
+    <!-- Article Truncated Summary/Description -->
+    {{ if isset .Params "description" }}
+        <p>{{ .Description | markdownify }}</p>
+    {{ else if gt (len .Summary) 250 }}
+        <p>{{ .Summary | markdownify | truncate 250 " ..." }}</p>
+    {{ else }}
+        <p>{{ .Summary | markdownify }}</p>
+    {{ end }}
+
+    <!-- Read Article Button -->
+    <div class="d-flex flex-row-reverse">
+            <a href="{{ .RelPermalink }}" class="btn btn-info btn-sm">Read Article <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+</div>

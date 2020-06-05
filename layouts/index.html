@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+{{ partial "head.html" . }} 
+{{ partial "nav.html" . }} 
+{{ partial "header.html" . }}
+
+<!-- Content Area -->
+<body>
+    <main role="main" class="container">
+
+        <!-- Basic Homepage Bio -->
+        <div class="row my-3">
+            <div class="col-md-4 shadow-sm p-3 mb-5 bg-white rounded text-center">
+                <img class="rounded-circle d-block img-fluid img-thumbnail" 
+                    src="{{ .Site.Params.AuthorPhoto | default "/images/default-author-photo.png" }}" />
+                <h1 class="display-4">{{ .Site.Params.Author }}</h1>
+                <p class="lead">{{ .Site.Params.Description }}</p>
+                
+                <!-- Font Awesome Social Media Icon Menu -->
+                {{ partial "social_icon_menu.html" . }}
+            </div>
+            <div class="col-md-8 align-self-center p-3">
+                <h2 class="display-4 text-center">Biography</h2>
+                <h3 class="lead text-justify">{{ safeHTML .Site.Params.Bio }} </h3>
+            </div>
+        </div>
+
+        <hr />
+        <!-- Latest Posts -->
+        <div class="row">
+            <div class="col-md-9">
+                <h3 class="display-4 text-center">Recent Posts</h3>
+                {{ with (.Site.GetPage "section" "posts")  }}
+                {{$numOfRecentPosts := $.Site.Params.NumOfRecentPosts | default 5}}
+                    {{range first $numOfRecentPosts .Pages.ByDate.Reverse}}
+                        {{ partial "article" . }}
+                    {{end}}
+                {{ end }}
+            </div>
+            <div class="col-md-3">
+                <h3 class="display-4 text-center">Taxonomy</h3>
+                {{ partial "all_taxonomies.html" . }}
+            </div>
+        </div>
+    </main>
+</body>
+{{ partial "footer.html" . }}
+
+</html>

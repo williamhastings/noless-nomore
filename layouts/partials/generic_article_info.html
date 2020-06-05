@@ -1,0 +1,28 @@
+<div class="row px-3 py-1 article-taxonomy">
+    <!-- Article Date -->
+    <i class="fa fa-calendar" aria-hidden="true">
+        <span class="px-2">{{ .Date.Format "2006-01-02" }}</span>
+    </i>
+
+    <!-- Article Categories -->
+    {{ if isset .Params "categories" }}
+        <i class="fa fa-bookmark mx-2" aria-hidden="true">
+            {{ range $category := .Params.Categories }}
+            <a class="text-decoration-none" href="{{ "categories/" | relLangURL }}{{ $category | urlize | lower }}/">
+                <span class="badge badge-info">{{ $category }}</span>
+            </a>
+            {{ end }}
+        </i>
+    {{ end }}
+
+    <!-- Article Tags -->
+    {{ if isset .Params "tags" }}
+        <i class="fa fa-hashtag mx-2" aria-hidden="true">
+            {{ range $tag := .Params.Tags }}
+            <a class="text-decoration-none" href="{{ "tags/" | relLangURL }}{{ $tag | urlize | lower }}/">
+                <span class="badge badge-info">{{ $tag }}</span>
+            </a>
+            {{ end }}
+        </i>
+    {{ end }}
+</div>

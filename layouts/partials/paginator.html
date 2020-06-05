@@ -1,0 +1,22 @@
+<div class="col-sm-12 text-center">
+<nav aria-label="paginator">
+    <ul class="pagination justify-content-center">
+        <li class="page-item">
+            <a class="page-link text-decoration-none text-reset" href="{{ .Paginator.First.URL }}" tabindex="-1"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+        </li>
+        {{ if .Paginator.HasPrev }}
+            <li class="page-item">
+                <a class="page-link text-decoration-none text-reset" href="{{ .Paginator.Prev.URL }}"><i class="fa fa-step-backward" aria-hidden="true"></i></a>
+            </li>
+        {{ end }}
+        {{ if .Paginator.HasNext }}
+            <li class="page-item">
+                <a class="page-link text-decoration-none text-reset" href="{{ .Paginator.Next.URL }}"><i class="fa fa-step-forward" aria-hidden="true"></i></a>
+            </li>
+        {{ end }}
+        <li class="page-item">
+            <a class="page-link text-decoration-none text-reset" href="{{ .Paginator.Last.URL }}"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+        </li>
+    </ul>
+</nav>
+</div>

@@ -1,0 +1,7 @@
+{{ if .Site.Menus.social }}
+<p class="nav-social-icon-menu">
+    {{ range sort .Site.Menus.social }}
+        <a href="{{ .URL }}" class="text-reset"><i class="fa fa-{{ .Name }} p-2" style="font-size:2.5rem;"></i></a>
+    {{ end }}
+</p>
+{{ end }}
